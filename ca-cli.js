@@ -45,19 +45,18 @@ lineReader.on('close', () => {
                 let cell = [i,j];
                 if(row[j])
                 {
-                    switch(countAliveNeighbors(grid, neighborhood, cell))
+                    if(s.includes(countAliveNeighbors(grid, neighborhood, cell)))
                     {
-                        case 2:
-                        case 3:
-                            newRow.push(true);
-                            break;
-                        default:
-                            newRow.push(false);
+                        newRow.push(true);
+                    }
+                    else
+                    {
+                        newRow.push(false);
                     }
                 }
                 else
                 {
-                    if(countAliveNeighbors(grid, neighborhood, cell) === 3)
+                    if(b.includes(countAliveNeighbors(grid, neighborhood, cell)))
                     {
                         newRow.push(true);
                     }
@@ -71,7 +70,7 @@ lineReader.on('close', () => {
         }
 
         grid = [...nextGen];
-    },500)
+    },250)
 })
 
 function getNeighbors(neighborhood, cell)
