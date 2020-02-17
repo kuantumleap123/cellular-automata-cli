@@ -121,6 +121,8 @@ function countAliveNeighbors(grid, neighborhood, cell)
     return count;
 }
 
+const liveCell = '█'
+const liveCell2 = 'o'
 function display(grid)
 {
     for(let i=0;i<grid.length;i++)
@@ -129,7 +131,7 @@ function display(grid)
         let displayRow = '';
         for(let j=0;j<gridRow.length;j++)
         {
-            displayRow += gridRow[j] ? 'o' : '.';
+            displayRow += gridRow[j] ? liveCell : ' ';
         }
         console.log(displayRow);
         
